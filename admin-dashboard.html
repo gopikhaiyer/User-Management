@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Admin Dashboard — User Management</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header class="topbar">
+    <button class="btn ghost menu-btn" onclick="toggleSidebar()">☰</button>
+    <div class="brand"><div class="logo"></div> Admin Dashboard</div>
+    <div class="search">
+      <input class="input" id="globalSearch" placeholder="Search users, emails, roles...">
+      <button class="btn" onclick="searchUsers()">Search</button>
+    </div>
+    <div class="user-badge">
+      <div class="avatar"></div>
+      <a class="btn ghost" href="profile.html">Profile</a>
+      <button class="btn danger" onclick="logout()">Logout</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <nav class="nav">
+        <a href="index.html">🏠 Home</a>
+        <a href="admin-dashboard.html" class="active">📊 Dashboard</a>
+        <a href="profile.html">👤 Profile</a>
+        <a href="login.html">🔐 Login</a>
+        <a href="register.html">📝 Register</a>
+      </nav>
+      <hr style="border-color: rgba(255,255,255,.08)"/>
+      <div class="small">Quick actions</div>
+      <div class="grid" style="margin-top:10px">
+        <button class="btn primary" onclick="seedUsers()">Seed demo users</button>
+        <button class="btn" onclick="clearUsers()">Clear users</button>
+      </div>
+    </aside>
+
+    <main class="main grid">
+      <section class="grid grid-3">
+        <div class="stat">
+          <div>
+            <div class="label">Total Users</div>
+            <div class="kpi" id="kpiTotal">0</div>
+          </div>
+          <span class="badge">All time</span>
+        </div>
+        <div class="stat">
+          <div>
+            <div class="label">Active</div>
+            <div class="kpi" id="kpiActive">0</div>
+          </div>
+          <span class="badge">Last 30d</span>
+        </div>
+        <div class="stat">
+          <div>
+            <div class="label">Admins</div>
+            <div class="kpi" id="kpiAdmins">0</div>
+          </div>
+          <span class="badge">Roles</span>
+        </div>
+      </section>
+
+      <section class="card">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px">
+          <h2 style="margin:0">Users</h2>
+          <div class="actions">
+            <input class="input" id="tableSearch" placeholder="Filter by name/email/role" oninput="renderTable()"/>
+            <button class="btn" onclick="addUserPrompt()">Add user</button>
+          </div>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="userRows"></tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

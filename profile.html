@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Profile — User Management</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><div class="logo"></div> UserMgmt</div>
+    <div class="user-badge">
+      <div class="avatar"></div>
+      <a class="btn ghost" href="admin-dashboard.html">Dashboard</a>
+      <button class="btn danger" onclick="logout()">Logout</button>
+    </div>
+  </header>
+
+  <main class="container grid">
+    <div class="card">
+      <h2 style="margin-top:0">Your Profile</h2>
+      <div class="form-row">
+        <div>
+          <label>Full name</label>
+          <input class="input" id="profileName" placeholder="Alex Doe"/>
+        </div>
+        <div>
+          <label>Email</label>
+          <input class="input" id="profileEmail" placeholder="you@example.com"/>
+        </div>
+      </div>
+      <div class="form-row">
+        <div>
+          <label>Role</label>
+          <select id="profileRole">
+            <option>User</option>
+            <option>Admin</option>
+            <option>Moderator</option>
+          </select>
+        </div>
+        <div>
+          <label>Status</label>
+          <select id="profileStatus">
+            <option>Active</option>
+            <option>Pending</option>
+            <option>Suspended</option>
+          </select>
+        </div>
+      </div>
+      <div class="actions" style="margin-top:12px">
+        <button class="btn primary" onclick="saveProfile()">Save changes</button>
+        <button class="btn" onclick="resetProfile()">Reset</button>
+      </div>
+    </div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
